@@ -9,6 +9,7 @@
 ## 2、实施步骤
 
 ######  自行将代码打成jar包
+tomcat-encryption.jar、tomcat-decryption.jar
 
 ### 2.1、修改原context.xml
 
@@ -66,3 +67,21 @@ context.xml ：
 ```done```
 
 ## 3、启动tomcat即可
+
+## 4、添加多个数据源
+> 修改context.xml
+
+context.xml ：
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+添加（保持<!ENTITY datasource_test SYSTEM "datasource_test.xml">格式，有几个加几个）
+```
+<!DOCTYPE Context [<!ENTITY datasource_test SYSTEM "datasource_test.xml"> <!ENTITY datasource_test01 SYSTEM "datasource_test01.xml">]>
+
+
+
+&datasource_test;
+&datasource_test01;（有几个加几个，名称对应）
+</Context>
+```
