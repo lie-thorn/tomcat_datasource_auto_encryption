@@ -48,25 +48,15 @@ context.xml ：
     
 ### 2.2 添加jar包
 
-将tomcat-encryption.jar、tomcat-decryption.jar。
+将tomcat-encryption.jar、tomcat-decryption.jar、dom4j-2.0.2.jar
 
 放入$TOMCAT_HOME/lib/中
 
-### 2.3 修改启动脚本
+### 3 对数据源文件进行加密
 
-打开start.sh文件
+java -jar $TOMCAT_HOME/lib/tomcat-encryption.jar $TOMCAT_HOME/conf/datasource_test.xml
+#也可以自行编写启动脚本，使启动tomcat时自动引用加密
 
-在第二行开始添加如下
-
-```for xml in $(ls ../conf/datasource_*.xml)```
-
-```do```
-        
-        java -jar ../lib/tomcat--encryption.jar $xml
-        
-```done```
-
-## 3、启动tomcat即可
 
 ## 4、添加多个数据源
 > 修改context.xml
