@@ -10,10 +10,10 @@
 
 ######  自行将代码打成jar包
 tomcat-encryption.jar、tomcat-decryption.jar
+[root@localhost ~]#unzip tomcat_datasource_auto_encryption-master
+[root@localhost ~]#cd tomcat_datasource_auto_encryption-master/
+[root@localhost tomcat_datasource_auto_encryption-master]#javac -cp dom4j-2.0.2.jar encryption/*.java -d .
 
-[root@localhost tomcat_datasource_auto_encryption-master]#mkdir -p com/tomcat/datasource/decryption
-[root@localhost tomcat_datasource_auto_encryption-master]#com/tomcat/datasource/encryption
-[root@localhost tomcat_datasource_auto_encryption-master]#javac -cp 
 ### 2.1、修改原context.xml
 
 自动加密由于涉及到对原配置文件的重写，所以需要将数据源配置从原配置文件中分离，保证重写后的配置文件不会影响到本身的其他配置。
