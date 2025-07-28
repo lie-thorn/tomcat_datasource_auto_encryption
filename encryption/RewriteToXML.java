@@ -39,7 +39,7 @@ public class RewriteToXML {
 		OutputFormat format = OutputFormat.createPrettyPrint();
 		format.setEncoding("UTF-8");
 //		File file = new File(fileName);
-		File file = new File("../conf/" + fileName);
+		File file = new File(fileName);
 		XMLWriter writer = new XMLWriter(new FileOutputStream(file), format);
 //		设置是否转义，默认使用转义字符
 		writer.setEscapeText(false);
