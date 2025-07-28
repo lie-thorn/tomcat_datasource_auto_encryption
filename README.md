@@ -3,7 +3,7 @@
 ## 1、先决条件
 
     1、JDK版本大于等于1.7
-    2、TOMCAT大版本大于等于8
+    2、TOMCAT大版本大于等于8（因为使用的是org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory类，如果要低版本修改对应的源码即可）
     3、不适用于在server.xml中配置的数据源（官方也不推荐）
 
 ## 2、实施步骤
