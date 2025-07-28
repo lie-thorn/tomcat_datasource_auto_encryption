@@ -38,7 +38,7 @@ context.xml ：
 
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" factory="com.eproe.tomcat.datasource.decryption.EncryptedDBCPDataSourceFactory"maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="root" password="1qaz2wsx" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://212.64.24.151:9033/test"/>
+<Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" factory="com.tomcat.datasource.decryption.EncryptedTomcatJdbcDataSourceFactory"maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="root" password="1qaz2wsx" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://212.64.24.151:9033/test"/>
 
 <i>其中:</i>
 
@@ -47,7 +47,7 @@ context.xml ：
     
 ### 2.2 添加jar包
 
-将eproe-tomcat-datasource-encryption.jar、eproe-tomcat-datasource-decryption.jar。
+将tomcat-encryption.jar、tomcat-decryption.jar。
 
 放入$TOMCAT_HOME/lib/中
 
@@ -61,7 +61,7 @@ context.xml ：
 
 ```do```
         
-        java -jar ../lib/eproe-tomcat-datasource-encryption.jar $xml
+        java -jar ../lib/tomcat--encryption.jar $xml
         
 ```done```
 
