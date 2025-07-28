@@ -13,6 +13,11 @@ tomcat-encryption.jar、tomcat-decryption.jar
 [root@localhost ~]#unzip tomcat_datasource_auto_encryption-master
 [root@localhost ~]#cd tomcat_datasource_auto_encryption-master/
 [root@localhost tomcat_datasource_auto_encryption-master]#javac -cp dom4j-2.0.2.jar encryption/*.java -d .
+[root@localhost tomcat_datasource_auto_encryption-master]#jar -cvfm tomcat-encryption.jar MANIFEST.MF com/tomcat/datasource/encryption/
+[root@localhost tomcat_datasource_auto_encryption-master]#javac -cp "/home/test/apache-tomcat-9.0.87/lib/tomcat-dbcp.jar:tomcat-encryption.jar" decryption/*.java -d .
+[root@localhost tomcat_datasource_auto_encryption-master]#
+[root@localhost tomcat_datasource_auto_encryption-master]#
+
 
 ### 2.1、修改原context.xml
 
