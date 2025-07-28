@@ -11,7 +11,7 @@ import org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory;
 
 import com.tomcat.datasource.encryption.EncodeProperties;
 
-public class EncryptedAboveTomcat7DataSourceFactory extends BasicDataSourceFactory {
+public class EncryptedTomcatJdbcDataSourceFactory extends BasicDataSourceFactory {
 	private final String NEW_LINE = "\n";
 	private final String CHAR_SET = "UTF-8";
 
