@@ -35,7 +35,7 @@ public class DataSourceAutoEncrypt {
 		if (Integer.parseInt(javaVersion.split("\\.")[1]) <= 6) {
 			throw new Exception("JDK版本不适用！需要jdk1.7及以上");
 		}
-		File inputXml = new File("../conf/" + datasourceXMLs);
+		File inputXml = new File(datasourceXMLs);
 		SAXReader saxReader = new SAXReader();
 		Document readDocument = saxReader.read(inputXml);
 		Element root = readDocument.getRootElement();
