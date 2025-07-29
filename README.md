@@ -15,7 +15,7 @@
 ##tomcat-encryption.jar、tomcat-decryption.jar
 
 ##将tomcat-encryption.jar、tomcat-decryption.jar、dom4j-2.0.2.jar放入$TOMCAT_HOME/lib/中
-
+```
 [root@localhost ~]#unzip tomcat_datasource_auto_encryption-master
 
 [root@localhost ~]#cd tomcat_datasource_auto_encryption-master
@@ -29,7 +29,7 @@
 [root@localhost tomcat_datasource_auto_encryption-master]#jar -cvf tomcat-decryption.jar com/tomcat/datasource/decryption/
 
 [root@localhost tomcat_datasource_auto_encryption-master]#cp *.jar $TOMCAT_HOME/lib/
-
+```
 
 ### 2.2、修改原context.xml
 
