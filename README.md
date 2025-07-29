@@ -41,7 +41,16 @@
 ```
 
 #### context.xml ：
->添加了<!DOCTYPE Context [<!ENTITY datasource_test SYSTEM "datasource_test.xml">]>和&datasource_test;
+>添加了
+
+```
+<!DOCTYPE Context [<!ENTITY datasource_test SYSTEM "datasource_test.xml">]>
+......
+
+&datasource_test;
+
+```
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Context [<!ENTITY datasource_test SYSTEM "datasource_test.xml">]>
@@ -100,7 +109,7 @@
 
 
 
-## 4、添加多个数据源
+## 3、添加多个数据源
 > 修改context.xml
 
 context.xml ：
@@ -110,8 +119,7 @@ context.xml ：
 添加（保持<!ENTITY datasource_test SYSTEM "datasource_test.xml">格式，有几个加几个）
 ```
 <!DOCTYPE Context [<!ENTITY datasource_test SYSTEM "datasource_test.xml"> <!ENTITY datasource_test01 SYSTEM "datasource_test01.xml">]>
-
-
+......
 
 &datasource_test;
 &datasource_test01;（有几个加几个，名称对应）
