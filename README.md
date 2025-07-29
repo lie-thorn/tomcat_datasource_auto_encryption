@@ -2,22 +2,26 @@
  
 ## 1、先决条件
 
-    1、JDK版本大于等于1.7
+    1、JDK版本大于等于1.8
     2、TOMCAT大版本大于等于8（因为使用的是org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory类，如果要低版本修改对应的源码即可）
     3、不适用于在server.xml中配置的数据源（官方也不推荐）
 
 ## 2、实施步骤
 
-######  自行将代码打成jar包
+### 2.1 将代码打成两个jar包
 tomcat-encryption.jar、tomcat-decryption.jar
-[root@localhost ~]#unzip tomcat_datasource_auto_encryption-master
-[root@localhost ~]#cd tomcat_datasource_auto_encryption-master/
-[root@localhost tomcat_datasource_auto_encryption-master]#javac -cp dom4j-2.0.2.jar encryption/*.java -d .
-[root@localhost tomcat_datasource_auto_encryption-master]#jar -cvfm tomcat-encryption.jar MANIFEST.MF com/tomcat/datasource/encryption/
-[root@localhost tomcat_datasource_auto_encryption-master]#javac -cp "/home/test/apache-tomcat-9.0.87/lib/tomcat-dbcp.jar:tomcat-encryption.jar" decryption/*.java -d .
-[root@localhost tomcat_datasource_auto_encryption-master]#
-[root@localhost tomcat_datasource_auto_encryption-master]#
 
+[root@localhost ~]#unzip tomcat_datasource_auto_encryption-master
+
+[root@localhost ~]#cd tomcat_datasource_auto_encryption-master
+
+[root@localhost tomcat_datasource_auto_encryption-master]#javac -cp dom4j-2.0.2.jar encryption/*.java -d .
+
+[root@localhost tomcat_datasource_auto_encryption-master]#jar -cvfm tomcat-encryption.jar MANIFEST.MF com/tomcat/datasource/encryption/
+
+[root@localhost tomcat_datasource_auto_encryption-master]#javac -cp "$TOMCAT_HOME/lib/tomcat-dbcp.jar:tomcat-encryption.jar" decryption/*.java -d .
+
+[root@localhost tomcat_datasource_auto_encryption-master]#jar -cvf tomcat-decryption.jar com/tomcat/datasource/decryption/
 
 ### 2.1、修改原context.xml
 
