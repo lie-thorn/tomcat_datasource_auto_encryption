@@ -41,6 +41,7 @@
 ```
 
 #### context.xml ：
+>添加了<!DOCTYPE Context [<!ENTITY datasource_test SYSTEM "datasource_test.xml">]>和&datasource_test;
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Context [<!ENTITY datasource_test SYSTEM "datasource_test.xml">]>
