@@ -43,7 +43,7 @@
 #### context.xml ：
 ```
 <?xml version="1.0" encoding="UTF-8"?>
-**<!DOCTYPE Context [<!ENTITY datasource_test SYSTEM "datasource_test.xml">]>**
+<!DOCTYPE Context [<!ENTITY datasource_test SYSTEM "datasource_test.xml">]>
 
 <!--
   Licensed to the Apache Software Foundation (ASF) under one or more
