@@ -10,24 +10,19 @@
 
 ### 2.1 将代码打成两个jar包，并移入$TOMCAT_HOME/lib/下
 
-##$TOMCAT_HOME=tomcat9版本安装目录
+> $TOMCAT_HOME=tomcat9版本安装目录
 
-##tomcat-encryption.jar、tomcat-decryption.jar
+> tomcat-encryption.jar、tomcat-decryption.jar
 
-##将tomcat-encryption.jar、tomcat-decryption.jar、dom4j-2.0.2.jar放入$TOMCAT_HOME/lib/中
+> 将tomcat-encryption.jar、tomcat-decryption.jar、dom4j-2.0.2.jar放入$TOMCAT_HOME/lib/中
 ```
+[root@localhost ~]#git clone https://github.com/lie-thorn/tomcat_datasource_auto_encryption.git
 [root@localhost ~]#unzip tomcat_datasource_auto_encryption-master
-
 [root@localhost ~]#cd tomcat_datasource_auto_encryption-master
-
 [root@localhost tomcat_datasource_auto_encryption-master]#javac -cp dom4j-2.0.2.jar encryption/*.java -d .
-
 [root@localhost tomcat_datasource_auto_encryption-master]#jar -cvfm tomcat-encryption.jar MANIFEST.MF com/tomcat/datasource/encryption/
-
 [root@localhost tomcat_datasource_auto_encryption-master]#javac -cp $TOMCAT_HOME/lib/tomcat-dbcp.jar:tomcat-encryption.jar" decryption/*.java -d .
-
 [root@localhost tomcat_datasource_auto_encryption-master]#jar -cvf tomcat-decryption.jar com/tomcat/datasource/decryption/
-
 [root@localhost tomcat_datasource_auto_encryption-master]#cp *.jar $TOMCAT_HOME/lib/
 ```
 
