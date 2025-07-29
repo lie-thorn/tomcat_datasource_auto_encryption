@@ -101,13 +101,19 @@
 
 
 ### 2.3 对数据源文件进行加密
->也可以自行编写启动脚本，使启动tomcat时自动引用加密
+>手动执行
 ```
 [root@localhost tomcat_datasource_auto_encryption-master]#java -jar $TOMCAT_HOME/lib/tomcat-encryption.jar $TOMCAT_HOME/conf/datasource_test.xml
 [root@localhost tomcat_datasource_auto_encryption-master]#cat $TOMCAT_HOME/conf/datasource_test.xml
 ```
 
-
+>也可以自行编写启动脚本，使启动tomcat时自动引用加密
+```
+for xml in $(ls $TOMCAT_HOME/conf/datasource_*.xml)
+do
+    java -jar $TOMCAT_HOME/lib/tomcat-datasource-encryption.jar $xml
+done
+```
 
 ## 3、添加多个数据源
 > 修改context.xml
