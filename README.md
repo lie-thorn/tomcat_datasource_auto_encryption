@@ -10,7 +10,7 @@
 
 ### 2.1 将代码打成两个jar包，并移入$TOMCAT_HOME/lib/下
 
-> $TOMCAT_HOME=tomcat9版本安装目录
+> $TOMCAT_HOME=tomcat版本安装目录
 
 > tomcat-encryption.jar、tomcat-decryption.jar
 
