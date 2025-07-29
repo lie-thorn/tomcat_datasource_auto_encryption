@@ -50,7 +50,7 @@
 &datasource_test;
 
 ```
-
+>完整文件示例
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Context [<!ENTITY datasource_test SYSTEM "datasource_test.xml">]>
@@ -112,7 +112,7 @@
 ## 3、添加多个数据源
 > 修改context.xml
 
-context.xml ：
+#### context.xml ：
 
 <?xml version="1.0" encoding="UTF-8"?>
 
