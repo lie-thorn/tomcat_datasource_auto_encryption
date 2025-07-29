@@ -8,8 +8,13 @@
 
 ## 2、实施步骤
 
-### 2.1 将代码打成两个jar包
-tomcat-encryption.jar、tomcat-decryption.jar
+### 2.1 将代码打成两个jar包，并移入$TOMCAT_HOME/lib/下
+
+##$TOMCAT_HOME=tomcat9版本安装目录
+
+##tomcat-encryption.jar、tomcat-decryption.jar
+
+##将tomcat-encryption.jar、tomcat-decryption.jar、dom4j-2.0.2.jar放入$TOMCAT_HOME/lib/中
 
 [root@localhost ~]#unzip tomcat_datasource_auto_encryption-master
 
@@ -19,11 +24,14 @@ tomcat-encryption.jar、tomcat-decryption.jar
 
 [root@localhost tomcat_datasource_auto_encryption-master]#jar -cvfm tomcat-encryption.jar MANIFEST.MF com/tomcat/datasource/encryption/
 
-[root@localhost tomcat_datasource_auto_encryption-master]#javac -cp "$TOMCAT_HOME/lib/tomcat-dbcp.jar:tomcat-encryption.jar" decryption/*.java -d .
+[root@localhost tomcat_datasource_auto_encryption-master]#javac -cp $TOMCAT_HOME/lib/tomcat-dbcp.jar:tomcat-encryption.jar" decryption/*.java -d .
 
 [root@localhost tomcat_datasource_auto_encryption-master]#jar -cvf tomcat-decryption.jar com/tomcat/datasource/decryption/
 
-### 2.1、修改原context.xml
+[root@localhost tomcat_datasource_auto_encryption-master]#cp *.jar $TOMCAT_HOME/lib/
+
+
+### 2.2、修改原context.xml
 
 自动加密由于涉及到对原配置文件的重写，所以需要将数据源配置从原配置文件中分离，保证重写后的配置文件不会影响到本身的其他配置。
 
@@ -51,7 +59,7 @@ context.xml ：
 
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" factory="com.tomcat.datasource.decryption.EncryptedTomcatJdbcDataSourceFactory"maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="root" password="1qaz2wsx" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://212.64.24.151:9033/test"/>
+<Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" factory="com.tomcat.datasource.decryption.EncryptedTomcatJdbcDataSourceFactory" maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="root" password="1qaz2wsx" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://192.168.1.1:1234/test"/>
 
 <i>其中:</i>
 
@@ -60,9 +68,7 @@ context.xml ：
     
 ### 2.2 添加jar包
 
-将tomcat-encryption.jar、tomcat-decryption.jar、dom4j-2.0.2.jar
 
-放入$TOMCAT_HOME/lib/中
 
 ### 3 对数据源文件进行加密
 
