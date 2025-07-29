@@ -115,6 +115,13 @@ do
 done
 ```
 
+>实现效果：context.xml中的username和password已自动加密 ：
+```
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" factory="com.tomcat.datasource.decryption.EncryptedTomcatJdbcDataSourceFactory" maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="Encrypted:xPcdgD8EpxrBps5pb+L+GQ==" password="Encrypted:NMHcsruX3oyN13DZdYsjQA==" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://212.64.24.151:9033/test"/>
+```
+
 ## 3、添加多个数据源
 > 修改context.xml
 
